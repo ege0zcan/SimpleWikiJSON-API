@@ -2,7 +2,7 @@ import time
 from flask import Flask, jsonify, request
 app = Flask(__name__)
 
-# example documents
+# example documents for testing
 documents = [
     {
         'documentTitle': "Einstein",
