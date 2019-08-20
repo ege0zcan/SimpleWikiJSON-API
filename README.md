@@ -25,3 +25,5 @@ Returns the current latest version of the document.
 ***POST /documents/<title>***
 
 This allows users to post a new revision of a document.
+
+It should receive JSON in the form: {content: ‘new content...’}.
