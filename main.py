@@ -2,6 +2,7 @@ import time
 from flask import Flask, jsonify, request
 app = Flask(__name__)
 
+#example documents
 documents = [
     {
         'documentTitle': "Einstein",
@@ -122,7 +123,6 @@ def create_revision(title):
         revision = request.get_json()
         if revision is None:
             revision={}
-        print(revision)
         revision['timeStamp'] = get_time()
         document['revisions'].append(revision)
         documents.append(document)
