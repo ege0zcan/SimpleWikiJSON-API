@@ -106,24 +106,24 @@ def create_revision(title):
 
     #TODO Error Handling
 
+    # create revision
+    content = request.form.get('content')
+    revision = request.get_json()
+    if revision is None:
+        revision = {}
+    revision['timeStamp'] = get_time()
+    revision['content'] = content
+
     document = find_with_title(title)
     if document is not None:
-        # if document exists create a revision
-        revision = request.get_json()
-        if revision is None:
-            revision={}
-        revision['timeStamp'] = get_time()
+        # if document exists add the revision
         document['revisions'].append(revision)
     else:
-        # if document does not exist create a document
+        # if document does not exist create a document with the revision
         document = {
             "documentTitle": title,
             "revisions": []
         }
-        revision = request.get_json()
-        if revision is None:
-            revision={}
-        revision['timeStamp'] = get_time()
         document['revisions'].append(revision)
         documents.append(document)
 
